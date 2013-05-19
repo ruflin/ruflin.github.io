@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Ruflin.com]]></title>
+  <title><![CDATA[Nicolas Ruflin]]></title>
   <link href="http://ruflin.github.io/atom.xml" rel="self"/>
   <link href="http://ruflin.github.io/"/>
-  <updated>2013-05-19T14:55:06+02:00</updated>
+  <updated>2013-05-19T15:07:37+02:00</updated>
   <id>http://ruflin.github.io/</id>
   <author>
     <name><![CDATA[Nicolas Ruflin]]></name>
