@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Elastica | Ruflin.com]]></title>
+  <link href="http://ruflin.github.io/blog/categories/elastica/atom.xml" rel="self"/>
+  <link href="http://ruflin.github.io/"/>
+  <updated>2013-05-19T14:46:33+02:00</updated>
+  <id>http://ruflin.github.io/</id>
+  <author>
+    <name><![CDATA[Nicolas Ruflin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Include Elastica in your project as svn:externals]]></title>
+    <link href="http://ruflin.github.io/2011/12/21/include-elastica-in-your-project-as-svn-externals/"/>
+    <updated>2011-12-21T10:57:00+01:00</updated>
+    <id>http://ruflin.github.io/2011/12/21/include-elastica-in-your-project-as-svn-externals</id>
+    <content type="html"><![CDATA[<p>As most of you know, <a href="https://github.com/ruflin/Elastica">Elastica</a> is hosted on <a href="https://github.com/">github</a>, which means it uses <a href="http://git-scm.com/">git</a> as its <a href="http://en.wikipedia.org/wiki/Version_control">revision control</a> system. I have several projects which include Elastica but use <a href="http://subversion.tigris.org/">subversion</a> as its version control system. Until now, I included Elastica as an external svn source by hosting my own Elastica svn repository. But yesterday I discovered that the code from github can also be checked out through svn. I immediately asked google to get more details about this feature and discovered several blog entries on the <a href="https://github.com/blog/966-improved-subversion-client-support">github blog</a> which I had somehow missed.</p>
+
+
+
+
+<p>It is not only possible to check out repositories, but also to check out some specific subfolders or tags and you can even commit to the repository (which I didn't test). As in my projects I only use the Elastica library folder and don't need all the tests and additional data, I check out only the lib folder. If you want to check out the Elastica lib folder from version v0.18.6.0, use the following line of code:</p>
+
+
+<p><code>
+svn co https://github.com/ruflin/Elastica/tags/v0.18.6.0/lib/ .
+</code></p>
+
+<p>If you have a lib folder in your project with all your frameworks and libraries and you want to add Elastica as an external source (which is quite useful), you can set the <a href="http://svnbook.red-bean.com/en/1.0/ch07s03.html">svn:externals property</a> on your library folder to the following.</p>
+
+
+<p><code>
+https://github.com/ruflin/Elastica/tags/v0.18.6.0/lib/Elastica Elastica
+</code></p>
+
+<p>If you already have other sources added as externals to your repository (for example ZF), just add this line below your existing lines. The next time you will update your repository, the Elastica folder with all its files will be checked out. To update to one of the next versions of Elastica, update the version number in the url in your svn:externals properties.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Log Requests in Elastica]]></title>
+    <link href="http://ruflin.github.io/2011/11/20/how-to-log-requests-in-elastica/"/>
+    <updated>2011-11-20T13:46:00+01:00</updated>
+    <id>http://ruflin.github.io/2011/11/20/how-to-log-requests-in-elastica</id>
+    <content type="html"><![CDATA[<p>In the <a href="https://github.com/ruflin/Elastica/tree/v0.18.4.1" target="_blank">Elastica Release v0.18.4.1</a>, the capability to log requests was added. There is a general Elastica_Log object that can later also be extended to log other things such as responses, exceptions and more. The Elastica_Log constructor takes an Elastica_Client as param. To enable logging, the config variable log for the client has to be set to true, or a specific path the log should be written to. This means that every client instance decides on its own whether logging is enabled or not.</p>
+
+
+
+
+<p>The example below will log the message "hello world" to the general PHP log.</p>
+
+
+<p><code>php
+$client = new Elastica_Client(array('log' =&gt; true));
+$log = new Elastica_Log($client);
+$log-&gt;log('hello world');
+</code></p>
+
+<br />
+
+
+
+
+<p>If a file path is set as the log config param, the error log will write the "hello world" message to the /tmp/php.log file.</p>
+
+
+<p><code>php
+$client = new Elastica_Client(array('log' =&gt; '/tmp/php.log'));
+$log = new Elastica_Log($client);
+$log-&gt;log('hello world');
+</code></p>
+
+<br />
+
+
+
+
+<p>If logging is enabled, all request are at the moment automatically logged. There is a special conversion of request to log messages. The log message is converted to the shell format, so every log line can directly be pasted into the shell to test out. This is quite nice to debug and to create a gist if others ask what the query looks like. Furthermore, this makes it simpler to figure out whether the problem relates to Elastica or not.</p>
+
+
+
+
+<p>For example the output for updating the number of replicas setting request for the index test would look like below.</p>
+
+
+<p><code>console
+curl -XPUT http://localhost:9200/test/_settings -d '{"index":{"number_of_replicas":0}}'
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
