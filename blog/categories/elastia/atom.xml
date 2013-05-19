@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Elastia | Ruflin.com]]></title>
-  <link href="http://ruflin.com/blog/categories/elastia/atom.xml" rel="self"/>
-  <link href="http://ruflin.com/"/>
-  <updated>2013-05-19T14:48:04+02:00</updated>
-  <id>http://ruflin.com/</id>
+  <link href="http://ruflin.github.io/blog/categories/elastia/atom.xml" rel="self"/>
+  <link href="http://ruflin.github.io/"/>
+  <updated>2013-05-19T14:52:13+02:00</updated>
+  <id>http://ruflin.github.io/</id>
   <author>
     <name><![CDATA[Nicolas Ruflin]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Elastica with multiple Elasticsearch Nodes]]></title>
-    <link href="http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/"/>
+    <link href="http://ruflin.github.io/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/"/>
     <updated>2011-11-21T13:05:00+01:00</updated>
-    <id>http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes</id>
+    <id>http://ruflin.github.io/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes</id>
     <content type="html"><![CDATA[<p>Elasticsearch was built with the cloud / multiple distributed servers in mind. It is quite easy to start a <a href="http://www.elasticsearch.org/guide/reference/modules/cluster.html">elasticsearch cluster</a> simply by starting multiple instances of elasticsearch on one server or on multiple servers. Every elasticsearch instance is called <a href="http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-info.html">a node</a>. To start multiple instances of elasticsearch on your local machine, just run the following command in the elasticsearch folder twice:</p>
 
 

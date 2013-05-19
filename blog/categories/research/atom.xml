@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Research | Ruflin.com]]></title>
-  <link href="http://ruflin.com/blog/categories/research/atom.xml" rel="self"/>
-  <link href="http://ruflin.com/"/>
-  <updated>2013-05-19T14:48:05+02:00</updated>
-  <id>http://ruflin.com/</id>
+  <link href="http://ruflin.github.io/blog/categories/research/atom.xml" rel="self"/>
+  <link href="http://ruflin.github.io/"/>
+  <updated>2013-05-19T14:52:13+02:00</updated>
+  <id>http://ruflin.github.io/</id>
   <author>
     <name><![CDATA[Nicolas Ruflin]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Storing and Analyzing Social Data]]></title>
-    <link href="http://ruflin.com/2011/04/17/storing-and-analyzing-social-data/"/>
+    <link href="http://ruflin.github.io/2011/04/17/storing-and-analyzing-social-data/"/>
     <updated>2011-04-17T14:24:00+02:00</updated>
-    <id>http://ruflin.com/2011/04/17/storing-and-analyzing-social-data</id>
-    <content type="html"><![CDATA[<p>From July 2010 to December 2010 I worked on my master thesis "Storing and Analyzing Social Data". It is about the structure of social data, how to store social data (i.e. NoSQL solutions) and the processing of social data. You can download the full thesis <a href="http://ruflin.com/files/Storing-and-Analyzing-Social-Data.pdf">here</a>.</p>
+    <id>http://ruflin.github.io/2011/04/17/storing-and-analyzing-social-data</id>
+    <content type="html"><![CDATA[<p>From July 2010 to December 2010 I worked on my master thesis "Storing and Analyzing Social Data". It is about the structure of social data, how to store social data (i.e. NoSQL solutions) and the processing of social data. You can download the full thesis <a href="http://ruflin.github.io/files/Storing-and-Analyzing-Social-Data.pdf">here</a>.</p>
 
 
 
