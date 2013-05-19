@@ -1,43 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://ruflin.github.io/2011/04/17/storing-and-analyzing-social-data/</loc>
+        <loc>http://ruflin.com/2011/04/17/storing-and-analyzing-social-data/</loc>
         <lastmod>2013-05-19T14:31:11+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ruflin.github.io/2011/11/20/how-to-log-requests-in-elastica/</loc>
+        <loc>http://ruflin.com/2011/10/29/vps-dot-net-you-get-what-you-pay-for/</loc>
+        <lastmod>2013-05-19T14:40:43+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ruflin.com/2011/11/20/how-to-log-requests-in-elastica/</loc>
         <lastmod>2013-05-19T14:19:11+02:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://ruflin.github.io/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/
-        </loc>
+        <loc>http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/</loc>
         <lastmod>2013-05-19T13:36:18+02:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://ruflin.github.io/2011/12/21/include-elastica-in-your-project-as-svn-externals/
-        </loc>
+        <loc>http://ruflin.com/2011/12/21/include-elastica-in-your-project-as-svn-externals/</loc>
         <lastmod>2013-05-19T13:51:45+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ruflin.github.io/about/</loc>
+        <loc>http://ruflin.com/about/</loc>
         <lastmod>2013-05-19T11:57:54+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ruflin.github.io/blog/archives/</loc>
-        <lastmod>2013-05-19T14:31:11+02:00</lastmod>
+        <loc>http://ruflin.com/blog/archives/</loc>
+        <lastmod>2013-05-19T14:40:43+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ruflin.github.io/</loc>
-        <lastmod>2013-05-19T14:31:11+02:00</lastmod>
+        <loc>http://ruflin.com/</loc>
+        <lastmod>2013-05-19T14:40:43+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ruflin.github.io/projects/</loc>
+        <loc>http://ruflin.com/projects/</loc>
         <lastmod>2013-05-19T14:40:07+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ruflin.github.io/robots.txt</loc>
+        <loc>http://ruflin.com/robots.txt</loc>
         <lastmod>2013-05-19T11:01:51+02:00</lastmod>
     </url>
 </urlset>

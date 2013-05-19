@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruflin.github.io">
+  <link rel="canonical" href="http://ruflin.com">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Ruflin.com" type="application/atom+xml">
@@ -48,7 +48,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:ruflin.github.io" />
+    <input type="hidden" name="q" value="site:ruflin.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -366,6 +366,77 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2011/10/29/vps-dot-net-you-get-what-you-pay-for/">Vps.net - You Get What You Pay For</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-29T14:21:00+02:00" pubdate data-updated="true">Oct 29<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have been a <a href="http://vps.net/">vps.net</a> user for more than two years. A few days ago vps.net <a href="http://www.vps.net/blog/2011/10/27/were-going-to-one-up-ourselves-and-give-you-a-free-node/">published a blog post</a> on offering a free node for every user that writes a blog post on their service. So here we are.</p></p>
+
+<p>The most important message first: With vps.net, you get what you pay for. This can be seen in a positive, but also a negative way. Vps.net is one of the cheaper VPS hosts (as long as you don’t use lots of nodes), but at the same time it is one of the less stable ones. The performance is good, but they have quite some downtime. So if you are looking for a cheap server with good speed, vps.net is not such a bad choice, but if you plan on running a production server or other things that should be up 24/7, I would recommend looking somewhere else (where you will pay more).</p>
+
+
+
+
+<p><p>An alternative to vps.net that I have been wanting to try out for a long time now, is <a href="http://www.linode.com/">Linode</a>. In contrast to vps.net they increased the amount of RAM you get for a single node in the last two years. The 376MB on vps.net are really not that much.</p>
+
+<p><p>For everyone who wants to hear more details, I had the following story with vps.net in the last two years.</p></p>
+
+<p><h2>Scaling &ndash; Up (sometimes) but not down</h2></p>
+
+<p><p>About two years ago we started to host <a href="http://useKit.com/">useKit.com</a> on vps.net, as we wanted it to scale as soon as we had more traffic on the site. But there were several issues with what we had in mind. Scaling up was easy (most of the time), but scaling down took forever and every time we wanted to scale down, we had to shut down our servers (I don’t know if that is better now) for quite a long time, which was not really a favourable to our business. Also, we were so unlucky that vps.net had some downtime every time we had the most traffic on our servers, which was quite bad for our users (and for us).</p></p>
+
+<p><p>Sometimes, when we had peak traffic on our servers, one server just stopped working from one second to the other. In the log it looked like someone pulled the plug from the server. During more than 3 months, I discussed this problem forth and back with the vps.net support. Until the end it was unclear what the real problem was, but vps.net always suggested it is probably related to the setup, even though it runs on others servers without any issues. Because of this (and other things mentioned above) we decided to move all our production servers to another host, were all these problems did not appear again.</p></p>
+
+<p><p>As we are using quite a few so called <a href="http://www.scribd.com/doc/49968664/Storing-and-Analyzing-Social-Data">NoSQL database systems</a> like <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://redis.io/">Redis</a> and <a href="http://www.elasticsearch.org/">elasticsearch</a>, we need servers that can handle quite a high number of open files. In general this is not a problem when Linux is configured correctly. But as the issue above always happened when one of these servers had a small peak, I assumed it was related to this issue.</p></p>
+
+<p><h2>Support &ndash; Solving issues but not resolving problems</h2></p>
+
+<p><p>Because of the issues we had, I had a lot of contact with the vps.net support. First the good thing: They reply quite fast and can fix the issue most of the time. The bad thing is, if you have a real problem, the support can be quite frustrating. If you open a ticket that goes forth and back you will have contact to several different supporters. Sometimes after having discussed a subject forth and back, the supporter changed and the whole thing started from the beginning. The same questions were asked again. I somehow got the feeling that sometimes they were too lazy to read up what was discussed before.</p></p>
+
+<p><p>But the main problem for me was that they were good at fixing issues, but they were not good at all at explaining how the issue was resolved or what the issue was. That was something I always asked but never got a good answer. If I want to run my production servers on a host, I want to know in more detail what kinds of issues he has and how he resolves the issue. I want to know whether my issue was something unexpected that happened and is fixed now and should not happen again or whether it is an open bug.</p></p>
+
+<p><p>One thing that describes this quite good is an issue that I had about ten times in the last two years: My server stats in the vps.net admin panel disappeared. Sometimes they just stopped working even though my server was still running and my own stats (<a href="http://www.cacti.net/">Cacti</a>) showed the right results. Every time I contacted the vps.net support, the issue was fixed in a few minutes, but they never explained to me why this happened again and again. I felt like they were just restarting the stats service every time they got this bug report but never tried to figure out why it happened.</p></p>
+
+<p><p>There are a few really good support engineers at vps.net, mostly L3 (or higher?). But it is soooo hard to get trough to them. The best answer I got from a L1 supporter for the problem above (as no stats were shown) was that this is not an issue as my server has 0 traffic and 0 cpu usage and this is the reason that nothing is shown (really?).</p></p>
+
+<p><p>A small side story just happened a week ago. Vps.net planned on moving my node to a new cluster. They sent me an e-mail three days before they planned to move my node and informed me that my server will be down for 2-3h. If it were a production server, this would not be acceptable for me. This is a too short notice and the time was during the most traffic on the server. Imagine all your nodes were be on the same cluster &hellip; Even worse, I had some downtime, but they failed to move the server and scheduled it again for next week? Apparently they had some issues but never mentioned what the issues were &hellip;</p></p>
+
+<p><p>At the moment, I still have a small development server at vps.net to run continuous integration tests for some open source projects such as <a href="https://github.com/ruflin/Elastica">Elastica</a>. But all my other servers that have to be up 24/7 I moved to other hosters. What is nice about vps.net is that it is really simple to just start up a single additional node for one day to make some tests for only $1.</p></p>
+
+<p><h2>Conclusion</h2></p>
+
+<p><p>Vps.net is nice for some cheap test nodes, but not for production servers.</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2011/04/17/storing-and-analyzing-social-data/">Storing and Analyzing Social Data</a></h1>
     
     
@@ -442,6 +513,10 @@
     
       <li class="post">
         <a href="/2011/11/20/how-to-log-requests-in-elastica/">How to Log Requests in Elastica</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/29/vps-dot-net-you-get-what-you-pay-for/">Vps.net - You Get What You Pay For</a>
       </li>
     
       <li class="post">
