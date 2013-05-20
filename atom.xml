@@ -4,7 +4,7 @@
   <title><![CDATA[Nicolas Ruflin]]></title>
   <link href="http://ruflin.github.io/atom.xml" rel="self"/>
   <link href="http://ruflin.github.io/"/>
-  <updated>2013-05-20T17:20:40+02:00</updated>
+  <updated>2013-05-20T21:23:40+02:00</updated>
   <id>http://ruflin.github.io/</id>
   <author>
     <name><![CDATA[Nicolas Ruflin]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[From Joomla to Octopress]]></title>
+    <link href="http://ruflin.github.io/2013/05/19/from-joomla-to-octopress/"/>
+    <updated>2013-05-19T00:00:00+02:00</updated>
+    <id>http://ruflin.github.io/2013/05/19/from-joomla-to-octopress</id>
+    <content type="html"><![CDATA[<p>After more than a year, I finally managed to upgrade my private website / blog. My blog and gallery used to be based on Joomla, as I was a contributor to Joomla some years ago and had built some extensions which were running my site. Every time Joomla released a large update I ran into trouble because either I was too lazy to upgrade my extensions or another external extension didn&rsquo;t work properly with the upgrade. Naturally, it always took me forever to upgrade my website (even for security updates) and when I did upgrade, some stuff was broken.</p>
+
+<p>Finally more than a year ago, I decided to switch to something simpler, perhaps even something that I didn&rsquo;t have to host myself. I tried different services like Tubmlr, Posterous, Wordpress and more. These are all great solutions and make your life easier when you only want to blog. What bugs me with all these solutions is that it&rsquo;s again very hard to move to a different service in case one of these services stops working &mdash;  like Posteurous recently.</p>
+
+<p>I prefer to write my blog post not in a WYSIWYG editor even if it supports raw text. From time to time, I want to insert some JavaScript or other things that the editors manage to break. So I was looking for a solution where I can write blog posts in a standardized format (HTML, Markdown) if possible in my preferred editor. Because of Github pages I stumbled over <a href="https://github.com/mojombo/jekyll">Jekyll</a>. At first, I was very sceptical as I thought it is too limiting. On my old blog, I had some fancy extensions such as gallery and other stuff.</p>
+
+<p>From Jekyll I moved to <a href="http://octopress.org/">Octopress</a>, as it offers some nice additions to Jekyll. What I really like about the solution is that it allows me to define my urls, have pages and posts and makes it really easy to deploy. The first plan was to migrate all blog entries from the old blog to the new one. As these were in two different languages and I couldn&rsquo;t find an import script for Joomla, I decided to only migrate some blog entries related to Elastica and start from scratch.</p>
+
+<p>So here is the new clean blog which will hopefully be filled with content again soon. At the moment I&rsquo;m really happy with the new solution. Is is very easy to create blog entries and putting content online is just one command.</p>
+
+<p>In case you miss some old blog entries you would like to have them online again, please let me now by sending a tweet to <a href="https://twitter.com/ruflin">@ruflin</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Include Elastica in your project as svn:externals]]></title>
