@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Elastica | Nicolas Ruflin]]></title>
-  <link href="http://ruflin.github.io/blog/categories/elastica/atom.xml" rel="self"/>
-  <link href="http://ruflin.github.io/"/>
-  <updated>2014-02-08T21:43:06+01:00</updated>
-  <id>http://ruflin.github.io/</id>
+  <link href="http://ruflin.com/blog/categories/elastica/atom.xml" rel="self"/>
+  <link href="http://ruflin.com/"/>
+  <updated>2014-02-08T22:15:35+01:00</updated>
+  <id>http://ruflin.com/</id>
   <author>
     <name><![CDATA[Nicolas Ruflin]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Include Elastica in your project as svn:externals]]></title>
-    <link href="http://ruflin.github.io/2011/12/21/include-elastica-in-your-project-as-svn-externals/"/>
+    <link href="http://ruflin.com/2011/12/21/include-elastica-in-your-project-as-svn-externals/"/>
     <updated>2011-12-21T10:57:00+01:00</updated>
-    <id>http://ruflin.github.io/2011/12/21/include-elastica-in-your-project-as-svn-externals</id>
+    <id>http://ruflin.com/2011/12/21/include-elastica-in-your-project-as-svn-externals</id>
     <content type="html"><![CDATA[<p>As most of you know, <a href="https://github.com/ruflin/Elastica">Elastica</a> is hosted on <a href="https://github.com/">github</a>, which means it uses <a href="http://git-scm.com/">git</a> as its <a href="http://en.wikipedia.org/wiki/Version_control">revision control</a> system. I have several projects which include Elastica but use <a href="http://subversion.tigris.org/">subversion</a> as its version control system. Until now, I included Elastica as an external svn source by hosting my own Elastica svn repository. But yesterday I discovered that the code from github can also be checked out through svn. I immediately asked google to get more details about this feature and discovered several blog entries on the <a href="https://github.com/blog/966-improved-subversion-client-support">github blog</a> which I had somehow missed.</p>
 
 
@@ -44,9 +44,9 @@ https://github.com/ruflin/Elastica/tags/v0.18.6.0/lib/Elastica Elastica
   
   <entry>
     <title type="html"><![CDATA[How to Log Requests in Elastica]]></title>
-    <link href="http://ruflin.github.io/2011/11/20/how-to-log-requests-in-elastica/"/>
+    <link href="http://ruflin.com/2011/11/20/how-to-log-requests-in-elastica/"/>
     <updated>2011-11-20T13:46:00+01:00</updated>
-    <id>http://ruflin.github.io/2011/11/20/how-to-log-requests-in-elastica</id>
+    <id>http://ruflin.com/2011/11/20/how-to-log-requests-in-elastica</id>
     <content type="html"><![CDATA[<p>In the <a href="https://github.com/ruflin/Elastica/tree/v0.18.4.1" target="_blank">Elastica Release v0.18.4.1</a>, the capability to log requests was added. There is a general Elastica_Log object that can later also be extended to log other things such as responses, exceptions and more. The Elastica_Log constructor takes an Elastica_Client as param. To enable logging, the config variable log for the client has to be set to true, or a specific path the log should be written to. This means that every client instance decides on its own whether logging is enabled or not.</p>
 
 
