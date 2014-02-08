@@ -137,20 +137,20 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$client = new Elastica_Client();</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">// Retrieve a Elastica_Cluster object</span>
-</span><span class='line'><span class="x">$cluster = $client-&gt;getCluster();</span>
+</span><span class='line'><span class="c1">// Retrieve a Elastica_Cluster object</span>
+</span><span class='line'><span class="nv">$cluster</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getCluster</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">// Returns the cluster state</span>
-</span><span class='line'><span class="x">$state = $cluster-&gt;getState();</span>
+</span><span class='line'><span class="c1">// Returns the cluster state</span>
+</span><span class='line'><span class="nv">$state</span> <span class="o">=</span> <span class="nv">$cluster</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">// Gets all cluster notes</span>
-</span><span class='line'><span class="x">$nodes = $cluster-&gt;getNodes();</span>
+</span><span class='line'><span class="c1">// Gets all cluster notes</span>
+</span><span class='line'><span class="nv">$nodes</span> <span class="o">=</span> <span class="nv">$cluster</span><span class="o">-&gt;</span><span class="na">getNodes</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">foreach ($nodes as $node) {</span>
-</span><span class='line'><span class="x">    echo $node-&gt;getName();</span>
-</span><span class='line'><span class="x">}</span>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$nodes</span> <span class="k">as</span> <span class="nv">$node</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -177,12 +177,12 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$client = new Elastica_Client(array(</span>
-</span><span class='line'><span class="x">  &#39;servers&#39; =&gt; array(</span>
-</span><span class='line'><span class="x">      array(&#39;host&#39; =&gt; &#39;localhost&#39;, &#39;port&#39; =&gt; 9200)</span>
-</span><span class='line'><span class="x">      array(&#39;host&#39; =&gt; &#39;localhost&#39;, &#39;port&#39; =&gt; 9201)</span>
-</span><span class='line'><span class="x">  )</span>
-</span><span class='line'><span class="x">));</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;servers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>      <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9200</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9201</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="p">));</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -336,8 +336,8 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Nicolas Ruflin -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; 2014 - Nicolas Ruflin -
+  <span class="credit">Hosted by <a href="http://xodoa.com">Xodoa</a></span>
 </p>
 
 </footer>
