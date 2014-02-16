@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Disallow: /Elastica/
 
 Sitemap: http://ruflin.com/sitemap.xml 
