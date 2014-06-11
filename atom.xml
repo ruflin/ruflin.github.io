@@ -4,7 +4,7 @@
   <title><![CDATA[Ruflin]]></title>
   <link href="http://ruflin.com/atom.xml" rel="self"/>
   <link href="http://ruflin.com/"/>
-  <updated>2014-02-16T10:49:40+01:00</updated>
+  <updated>2014-06-11T20:46:47+02:00</updated>
   <id>http://ruflin.com/</id>
   <author>
     <name><![CDATA[@ruflin]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Quality in software projects matters from day one]]></title>
+    <link href="http://ruflin.com/2014/06/10/quality-in-software-projects-matters-from-day-one/"/>
+    <updated>2014-06-10T20:43:14+02:00</updated>
+    <id>http://ruflin.com/2014/06/10/quality-in-software-projects-matters-from-day-one</id>
+    <content type="html"><![CDATA[<p>As I see <a href="http://en.wikipedia.org/wiki/Software_quality">quality in software</a> as one of the most important features when building software, I will dedicate my next blog posts on software quality and quality standards. For most non-engineers, quality in software projects is something very abstract. I will therefore now and then make comparisons to building a car, since most people are more famliar with cars and objects they can actually touch and feel. My first post will be about why it matters to get quality into your software project from day one.</p>
+
+<p>Quality in software projects is a topic that lots of engineers talk about and also embrace. I rarely witness discussions where engineers argue against the importance of quality. The only situation where the question of quality might be an issue is when talking about building a prototype or writing the first lines of code of a project. Should you have quality standards in your prototype? Should you start your project already with tests?</p>
+
+<p>My answer to this is: If you plan to run your software multiple times, you should. If you build a prototype for example during a hackathon that only needs to run once, perhaps you can build it without including some basic tests. But even in this situation, I belive that having some basic quality measures in your code will prevent nasty surprises during your presentation.</p>
+
+<p>The beautiful thing about software is that it normally not only runs once, but can be executed thousands or millions of times without additional costs (except sever costs). If you build software that is only executed once, why would you even build it? That is why quality standards also matter in your prototype. Your prototype will be executed lots of times and will go through various iterations. A prototype will have lower quality standards than a production system. To draw the comparison to building a car here: The first time you build a new car, you will not test 100 times if the blinker works as expected, but you will make sure that the breaks actually work. The same for your prototype, make sure you have at least tested the core functionality.</p>
+
+<p>More than once I have witnessed a prototype actually making it into production, the so-called <a href="http://blog.codinghorror.com/new-programming-jargon/">Proto-duction</a>. No, this should not happen, but if you start shipping your prototype and actual real users start to use it, it is very hard to convince the users and your business unit that you have to start from scratch again because you didn&rsquo;t plan this software to actually be for users. If we make the comparison with the car again, we shippped it to the user and made sure the accelarator actually works as expected, as this is the first things users test, but we didn&rsquo;t put much thought into how the breaks are applied if the car actually is going down and not on a flat street. Depending on how bad your &ldquo;break&rdquo; issue in your sofware is, perhaps it makes sense to take it away from your users again and build it from scratch.</p>
+
+<p>To prevent Proto-Duction issues, get quality in your software projects from day one and make sure your quality is easily measured. More on how to make measuring your quality easy in the next post.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Getting started with the Internet of Things]]></title>
