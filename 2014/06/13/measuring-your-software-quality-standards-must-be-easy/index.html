@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Measuring your software quality standards must be easy - Ruflin</title>
+  <meta name="author" content="@ruflin">
+
+  
+  <meta name="description" content="Quality in Software projects is important, as already elaborated upon in the previous post, it matters from day one. But as long as measuring and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruflin.com/2014/06/13/measuring-your-software-quality-standards-must-be-easy">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ruflin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2317870-20']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Nicolas Ruflin</a></h1>
+  
+    <h2>A Passionate Technology Entrepreneur</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruflin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Measuring Your Software Quality Standards Must Be Easy</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-13T09:19:37+02:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Quality in Software projects is important, as already elaborated upon in the previous post, <a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">it matters from day one</a>. But as long as measuring and running quality metrics isn&rsquo;t easy, it will be hard to follow through with quality.</p>
+
+<p>For almost all programming languages there are tons of tools to run unit tests, check the code complexity or measure the code coverage. The easiest way to get these tools into your project is on day one. The longer you wait, the harder it gets to implement them. There will be dependencies which are not compatible, running the tests doesn&rsquo;t work because you use a different folder structure and lots of other issues. The tools you choose to measure the quality will also influence the way you structure your project and your code. And I think this is good, as in most cases this leads to better structured code and less dependencies in the code which has lots of other advantages.</p>
+
+<h2>Setup and Build Tools</h2>
+
+<p>Installing the tools is not enough, it must also be easy to execute them and to get the metrics out. Otherwise, it is likely that you won&rsquo;t use it and in case you share your project, others won&rsquo;t use it. There are different tools out there such as <a href="http://en.wikipedia.org/wiki/Make_(software)">Makefiles</a>, <a href="http://ant.apache.org/">Ant</a>, <a href="http://maven.apache.org/">Maven</a>, <a href="http://gruntjs.com/">Grunt</a> and others, which allow you to automate running your tests or to get the code coverage. Pick the tool which is best for you and your project. For all tools, the execution should be just one command, such as <code>make coverage</code> in order to get the test coverage.</p>
+
+<p>Not only running the tools must be automated, but also the setup of the tools. In case you have different dependencies in your project that are needed to build the test coverage, make sure that the setup of your project is also as simple as <code>make setup</code>. There are also lots of dependency managers out there that automate the installation of the dependencies for you, such as <a href="http://bundler.io/">Bundler</a>, <a href="https://packagist.org/">Packagist</a> or <a href="https://pypi.python.org/pypi/pip">Pip</a>. If you want to make it even nicer, make sure that your build script runs also <code>make setup</code> in case you run <code>make coverage</code> and some depenencies are missing &hellip;</p>
+
+<p>To have these simple commands in place will make it very easy for you to run the quality metrics as often as possible. But also whenever new engineers join the project, with just one command they can start contributing to your project. If you don&rsquo;t have these kind of scripts in place, you will spend a lot of time with every single engineer who joins the project. And in case some dependencies change, others don&rsquo;t know how to get to the right setup again. This will not only cost you a lot of time, but it will also lead to frustration on all sides. To draw the analogy to building a car: Not having the script is like lending your car to someone else, but before the person is able to start driving, they either need a two-hour crash course from you or they need to read the full manual, because in your car, the accelerator is actually on the left side and the breaks are on the steering wheel. The next time the person will borrow your car, you changed the breaks to the left side and the whole process starts anew. If it is that hard to lend your car, you will not lend it to someone and the same is true for your code. If it is very hard for others to work with your code, you will not share it and they will not want to work with it.</p>
+
+<h2>Run it locally</h2>
+
+<p>It is crucial that all your quality measurements can be executed locally. How can you make sure your code is good enough if you can&rsquo;t test it locally? When you have to commit your code to a build server first, which runs all the tasks and gives you feedback after several minutes / hours that you actually have one typo in a test, you will stop writing tests, since otherwise it will slow you down. In addition, I think &ldquo;broken&rdquo; code should never make it into a shared repository / branch, as otherwise you will not only break your own code, but everyone else&rsquo;s, and your code will block the whole team. To draw the car analogy again: You implement a new break system in your car and also put it into the car the test team uses. After one week you realise that no test team is left, since all of them died in car accidents due to the breaks that didn&rsquo;t work. You didn&rsquo;t expect them to already use the breaks, since they were not finished / tested by yourself, but unfortunately they were testing the accelartor in the car which was ready for testing. Presumably your fellow engineers won&rsquo;t die because of broken code, but frustration is guaranteed.</p>
+
+<p>Make sure you and your team members can run all the metrics on your local machine and have it as close to the production system as possible. The best is to use a virtual environment with a clean setup. Tools such as <a href="http://www.vagrantup.com/">Vagrant</a> or <a href="http://www.docker.com/">Docker</a> can make your life much easier. Do not run the code on your local machines, since normally every engineer has some special environment variables or tools installed on his computer. This can either get all the quality metrics to pass but then they fail on another system, or it can do the opposite. A simple example here is for all the engineers who develop on OS X. By default, OS X has a case insensitive file system. On the other hand, Linux, which most servers run on, does not. So in case you include the file <code>image.png</code> but it is actually called <code>Image.png</code>, it will probably work on your local machine but not on the production server. Run your code in a very simliar environment to the production in order to make sure it works. And again, make sure the setup of this virtual environment is automated so everyone in your team will use it.</p>
+
+<h2>Conclusion</h2>
+
+<p>In the optimal case, you would not even have to run your quality metrics. Instead, they would run every time you change your code and immediately give you direct feedback. There are tools such as <a href="https://github.com/mynyml/watchr">watchr</a> which are intended for continuous testing and which run the tests every time you change the code. Having feedback for your code as fast as possible is crucial in order to produce better code. Tests should not slow down your development but speed it up. Make sure that setting up your project and running your quality metrics is fully automated and that it happens as fast as possible. If your tests take a day to execute, no one will ever run the tests except your continuous integration system over night. This would mean the feedback cycle is one day long, which will make sure that you get a maximum of 365 feedbacks per year.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="https://twitter.com/ruflin">@ruflin</a></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-13T09:19:37+02:00" pubdate data-updated="true">Jun 13<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/quality/'>Quality</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ruflin.com/2014/06/13/measuring-your-software-quality-standards-must-be-easy/" data-via="ruflin" data-counturl="http://ruflin.com/2014/06/13/measuring-your-software-quality-standards-must-be-easy/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2014/06/10/quality-is-part-of-your-software-development-process/" title="Previous Post: Quality is part of your software development process">&laquo; Quality is part of your software development process</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <a  href="http://ch.linkedin.com/in/ruflin"><img class="social-icon" src="/images/linkedin-small.jpg" /></a>
+  <a href="https://twitter.com/ruflin"><img class="social-icon"  src="/images/twitter-small.png" /></a>
+  <a href="https://github.com/ruflin"><img class="social-icon"  src="/images/GitHub-small.png" /></a>
+</section>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ruflin">@ruflin</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ruflin',
+            count: 3,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/13/measuring-your-software-quality-standards-must-be-easy/">Measuring Your Software Quality Standards Must Be Easy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/06/10/quality-is-part-of-your-software-development-process/">Quality Is Part of Your Software Development Process</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">Quality in Software Projects Matters From Day One</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/14/why-you-should-know-the-http-status-code-418/">What HTTP Has to Offer Besides Code 418</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/08/getting-started-with-the-internet-of-things/">Getting Started With the Internet of Things</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/116483615197289019288?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - @ruflin -
+  <span class="credit">Hosted by <a href="http://xodoa.com">Xodoa</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruflincom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruflin.com/2014/06/13/measuring-your-software-quality-standards-must-be-easy/';
+        var disqus_url = 'http://ruflin.com/2014/06/13/measuring-your-software-quality-standards-must-be-easy/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
