@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Quality | Ruflin]]></title>
   <link href="http://ruflin.com/blog/categories/quality/atom.xml" rel="self"/>
   <link href="http://ruflin.com/"/>
-  <updated>2014-06-13T09:07:14+02:00</updated>
+  <updated>2014-06-13T09:08:40+02:00</updated>
   <id>http://ruflin.com/</id>
   <author>
     <name><![CDATA[@ruflin]]></name>
@@ -39,26 +39,6 @@
 <h2>Conclusion</h2>
 
 <p>In the optimal case, you would not even have to run your quality metrics. Instead, they would run every time you change your code and immediately give you direct feedback. There are tools such as <a href="https://github.com/mynyml/watchr">watchr</a> which are intended for continuous testing and which run the tests every time you change the code. Having feedback for your code as fast as possible is crucial in order to produce better code. Tests should not slow down your development but speed it up. Make sure that setting up your project and running your quality metrics is fully automated and that it happens as fast as possible. If your tests take a day to execute, no one will ever run the tests except your continuous integration system over night. This would mean the feedback cycle is one day long, which will make sure that you get a maximum of 365 feedbacks per year.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quality is part of your software development process]]></title>
-    <link href="http://ruflin.com/2014/06/10/quality-is-part-of-your-software-development-process/"/>
-    <updated>2014-06-10T20:44:47+02:00</updated>
-    <id>http://ruflin.com/2014/06/10/quality-is-part-of-your-software-development-process</id>
-    <content type="html"><![CDATA[<p>you get what you measure</p>
-
-<p>make sure it runs locally
-make sure it runs fast
-easy for new starters
-install tools automatically
-you get what you measure</p>
-
-<p>tests don&rsquo;t slow you down, they make you more confident in changes
-but I have to update to all tests because of the changes &ndash;> yes, but you know they are going to work. perhaps even adapt the tests in advance. or makes you think why was this wrong int he first place</p>
-
-<p>comparison car</p>
 ]]></content>
   </entry>
   
