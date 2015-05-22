@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using Elastica with multiple Elasticsearch Nodes - Ruflin</title>
+  <meta name="author" content="@ruflin">
+
+  
+  <meta name="description" content="Elasticsearch was built with the cloud / multiple distributed servers in mind. It is quite easy to start a elasticsearch cluster simply by starting &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ruflin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2317870-20']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Nicolas Ruflin</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruflin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using Elastica With Multiple Elasticsearch Nodes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-21T13:05:00+01:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Elasticsearch was built with the cloud / multiple distributed servers in mind. It is quite easy to start a <a href="http://www.elasticsearch.org/guide/reference/modules/cluster.html">elasticsearch cluster</a> simply by starting multiple instances of elasticsearch on one server or on multiple servers. Every elasticsearch instance is called <a href="http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-info.html">a node</a>. To start multiple instances of elasticsearch on your local machine, just run the following command in the elasticsearch folder twice:</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>./bin/elasticsearch -f
+</span><span class='line'>./bin/elasticsearch -f
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>As you will see, the first node will be started on port 9200, the second instance on port 9201. Elasticsearch automatically discovers the other node and creates a cluster. Elastica can be used to retrieve all node and cluster information. In the following example first the cluster object is retrieved (Elastica_Cluster) from the client and then the <a href="http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html">cluster state</a> is read out. Then all cluster nodes (Elastica_Node) are retrieved and the name of every node is printed out. Every cluster has at least one node and every node has a specific name.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Retrieve a Elastica_Cluster object</span>
+</span><span class='line'><span class="nv">$cluster</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getCluster</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Returns the cluster state</span>
+</span><span class='line'><span class="nv">$state</span> <span class="o">=</span> <span class="nv">$cluster</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Gets all cluster notes</span>
+</span><span class='line'><span class="nv">$nodes</span> <span class="o">=</span> <span class="nv">$cluster</span><span class="o">-&gt;</span><span class="na">getNodes</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$nodes</span> <span class="k">as</span> <span class="nv">$node</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Client to multiple servers</h2>
+
+
+
+
+<p>As elasticsearch is a distributed search engine that can be run on multiple servers, it is possible that some servers fail and still, the search works as expected as the data is stored redundantly (replicas). The <a href="http://www.elasticsearch.org/guide/reference/api/admin-indices-create-index.html">number of shards and replicas</a> can be chosen for every single index during creation. Of course, this can also be set with Elastica through the mapping as can be seen in the <a href="https://github.com/ruflin/Elastica/blob/master/test/lib/Elastica/IndexTest.php">Elastica_Index test</a>. More details on this perhaps in a later blog post.</p>
+
+
+
+
+<p>One of the goals of the distributed search index is availability. If one server goes down, search results should still be served. But if the client connects to only the server that just went down, no results are returned anymore. Because of this, Elastica_Client supports multiple servers which are accessed in a round robin algorithm. This is the only and also most basic option at the moment. So if we start a node on port 9200 and port 9201 above, we pass the following arguments to Elastica_Client to access both servers.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;servers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>      <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9200</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9201</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>From now on, every request is sent to one of these servers in a round robin type. Instead of localhost, an external server could be used in addition. I'm aware that this is still a quite basic implementation. As probably some of you already realized, this is no safe failover method, as every second request still goes onto the server that is down. One idea here is to give a specific threshold for every server in which the respond time should be and otherwise the query goes to the next server. In addition, it would be useful to store this information on unavailable servers somewhere in order to use it for the next request. Thus, only one client has to wait for the unavailable server. Storing this information is somehow an issue, since Elastica does not have any storage backend.</p>
+
+
+
+
+<h2>Load Distribution</h2>
+
+
+
+
+<p>This client implementation also allows to distribute the load on multiple nodes. As far as I know, Elasticsearch already does this quite well on its own. But it helps if more than one node can answer http requests. Therefore, the method above is really useful if you use more than one elasticsearch node in a cluster to send your request to all servers.</p>
+
+
+
+
+<p>It is planned to enhance this multiple server implementation in the future with additional parameters such as priority for a server and some other ideas. Please feel free to write down your ideas in the comment section or directly create a pull request on github.</p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="https://twitter.com/ruflin">@ruflin</a></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-21T13:05:00+01:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/elastia/'>elastia</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/" data-via="ruflin" data-counturl="http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/11/20/how-to-log-requests-in-elastica/" title="Previous Post: How to Log Requests in Elastica">&laquo; How to Log Requests in Elastica</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/12/21/include-elastica-in-your-project-as-svn-externals/" title="Next Post: Include Elastica in your project as svn:externals">Include Elastica in your project as svn:externals &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <a  href="http://ch.linkedin.com/in/ruflin"><img class="social-icon" src="/images/linkedin-small.jpg" /></a>
+  <a href="https://twitter.com/ruflin"><img class="social-icon"  src="/images/twitter-small.png" /></a>
+  <a href="https://github.com/ruflin"><img class="social-icon"  src="/images/GitHub-small.png" /></a>
+</section>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ruflin">@ruflin</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ruflin',
+            count: 3,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/13/measuring-your-software-quality-standards-must-be-easy/">Measuring Your Software Quality Standards Must Be Easy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">Quality in Software Projects Matters From Day One</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/14/why-you-should-know-the-http-status-code-418/">What HTTP Has to Offer Besides Code 418</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/08/getting-started-with-the-internet-of-things/">Getting Started With the Internet of Things</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/05/19/from-joomla-to-octopress/">From Joomla to Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/116483615197289019288?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - @ruflin -
+  <span class="credit">Hosted by <a href="http://xodoa.com">Xodoa</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruflincom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/';
+        var disqus_url = 'http://ruflin.com/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

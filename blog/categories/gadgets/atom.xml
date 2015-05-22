@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gadgets | Ruflin]]></title>
+  <link href="http://ruflin.com/blog/categories/gadgets/atom.xml" rel="self"/>
+  <link href="http://ruflin.com/"/>
+  <updated>2015-05-22T14:53:26+02:00</updated>
+  <id>http://ruflin.com/</id>
+  <author>
+    <name><![CDATA[@ruflin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Getting started with the Internet of Things]]></title>
+    <link href="http://ruflin.com/2013/06/08/getting-started-with-the-internet-of-things/"/>
+    <updated>2013-06-08T23:53:00+02:00</updated>
+    <id>http://ruflin.com/2013/06/08/getting-started-with-the-internet-of-things</id>
+    <content type="html"><![CDATA[<p>The term <a href="http://en.wikipedia.org/wiki/Internet_of_Things">Internet of Things</a> has been around for quite some time. Until recently, however, the things were mostly offline and could only connect to the internet through a mobile phone, for example via scanning a QR code. This changed in the last months and years with quite a few start-ups that entered the market, such as <a href="http://ninjablocks.com/">Ninja Blocks</a> or <a href="http://www.smartthings.com/">SmartThings</a> and devices such as <a href="http://hitekelec.com/myknut/">Knut</a> or <a href="http://supermechanical.com/">Twine</a>, as well as larger companies such as Philips with the <a href="http://www.meethue.com/">Hue Lightbulb</a>. Some of them are based on standards such as <a href="http://www.zigbee.org/">Zigbee</a> or have their own implementation.</p>
+
+<p>The introduction of very cheap and simple computers such as the <a href="http://www.raspberrypi.org/">Raspberry PI</a> and <a href="http://www.arduino.cc/">Arduino</a> had a huge impact on the internet of things. The sensors that had until then been mostly offline  can suddenly be connected to a cheap computer which connects to the internet. This makes it possible to access the sensors at any time from any location, mainly from the smart phone. It is even possible to interact with the sensor, for example turning the light on or opening a door.</p>
+
+<p>Most of these sensors can only do one thing and are basically &ldquo;stupid&rdquo;. But the power is and will be added through software. As these sensors are now all connected to each other, it is possible to write applications that interact with the sensors and make the whole system intelligent.</p>
+
+<p>From my point of view, the Internet of Things just got started. The more the things disappear and the more intelligent the interaction is, the more it will help us in our daily lives, and we will completely forget how it was possible to live without it. It will take a few years until these kind of things will be built into houses, but I think we are now at a good point to finally get the Internet of Things running.</p>
+
+<p>After playing around with a Raspberry PI for quite some time, I finally ordered a <a href="http://ninjablocks.com/products/ninja-blocks-kit">Ninja Blocks Kit</a>. I decided to go with the Ninja Blocks Kit for different reasons. First, I was only looking for a humidity sensor which I could monitor remotely. This is offered by various providers. What I like about the Ninja Blocks is that it is all based on Open Source. Not only the software is open source, but also the hardware plans are on Github. The product is at the moment probably more focused on Geeks than normal end users, but that&rsquo;s how the whole thing starts. I would predict that in the next months there will be lots of small startups which build up on this basic infrastructure/service to provide end user friendly solutions for all kinds of stuff such as home monitoring, gardening and lots more.</p>
+
+<p>I really look forward to getting my Ninja Blocks Kit. As soon as I get it I will post an update/review.</p>
+]]></content>
+  </entry>
+  
+</feed>

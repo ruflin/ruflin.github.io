@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>What HTTP Has To Offer Besides Code 418 - Ruflin</title>
+  <meta name="author" content="@ruflin">
+
+  
+  <meta name="description" content="The internet is an integral part of our daily lives. We would be lost without the internet at work, and we depend upon it to guide us to a good &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruflin.com/2014/02/14/why-you-should-know-the-http-status-code-418">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ruflin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2317870-20']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Nicolas Ruflin</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruflin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">What HTTP Has to Offer Besides Code 418</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-14T21:35:44+01:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The internet is an integral part of our daily lives. We would be lost without the internet at work, and we depend upon it to guide us to a good restaurant or hotel on our holidays. None of this would be possible without internet protocols. <a href="http://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP</a>, <a href="http://en.wikipedia.org/wiki/Dhcp">DHCP</a>, <a href="http://en.wikipedia.org/wiki/Dns">DNS</a>, <a href="http://en.wikipedia.org/wiki/Http">HTTP</a> and many other internet protocols have been around for the last 20 years. Even more amazingly, they have changed only very little.</p>
+
+<p>The largest part of the &ldquo;visible&rdquo; web has always been running on the Hypertext Transfer Protocol known as HTTP. HTTP/1.0 was introduced in May 1996 as <a href="http://tools.ietf.org/html/rfc1945">RFC 1945</a>. A few months later, HTTP/1.1 was released as <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">RFC 2616</a>. Since then, the protocol received some minor improvements, but stayed mainly the same.</p>
+
+<p>In a fast-living environment such as the internet, 20 years of staying almost the same feels like several lifetimes. In their impact, protocols are comparable to inventing the wheel; both have been surving their purpose in many different environments and with different technologies. The inventors of HTTP, <a href="http://en.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners Lee</a> and his colleagues, were very smart people who did not only think of what they needed back then, but also of how the protocol might be used in the future. If you study the RFC in detail, you see that HTTP does not only offer two, four or five <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9">request methods</a>, but eight of them. Furthermore, it has a total of 41 status codes defined.</p>
+
+<p>The downside of having something that has stayed the same for such a long time is the tendency we have to forget how good something actually is. As for the wheel, we need to take care we don&rsquo;t reinvent internet protocols. Although the internet is all around us, only a small minority actually understands how it works. Most of them are engineers. And even engineers might have forgotten, or they might be younger than the protocols themselves and might never have learned it in the first place.</p>
+
+<p>Nowadays, we are used to very quickly building small applications with API&rsquo;s and frameworks. Seemingly, there is no need to understad the basic tools. Most engineers know at least the GET and POST Request methods and some of the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">status codes</a>, such as 200 or 404. But most of us don&rsquo;t have a deeper understanding, even though HTTP is at the core of most of the web applications we build.</p>
+
+<p>So what about the status code 418? Code 418 is part of the <a href="https://tools.ietf.org/html/rfc2324">Hyper Text Coffee Pot Control Protocol</a> (HTCPCP/1.0) which was introduced as an April&rsquo;s fool in 1998. Code 418 is therefore neither listed in the official RFC, nor should it be used as a status code.  If it still haunts the internet, it is because we are able to use the tools to build applications, but we don&rsquo;t always understand the tools themselves.</p>
+
+<p>If we use a 418 code, or if we don&rsquo;t know the difference between a 301 and a 302 code, we damage the internet little by little. Let&rsquo;s re-learn HTTP and re-discover what it has to offer. For example, a status code that is not very well known but from my point of view is very usable is <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3">202</a> (Accepted). Only by understanding internet protocols can we push them forward and be ready for <a href="http://en.wikipedia.org/wiki/HTTP_2.0">HTTP/2.0</a>, which is lurking on the horizon and will help us adapt to the new needs of internet communication.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn"><a href="https://twitter.com/ruflin">@ruflin</a></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-14T21:35:44+01:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ruflin.com/2014/02/14/why-you-should-know-the-http-status-code-418/" data-via="ruflin" data-counturl="http://ruflin.com/2014/02/14/why-you-should-know-the-http-status-code-418/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/06/08/getting-started-with-the-internet-of-things/" title="Previous Post: Getting started with the Internet of Things">&laquo; Getting started with the Internet of Things</a>
+      
+      
+        <a class="basic-alignment right" href="/2014/06/10/quality-in-software-projects-matters-from-day-one/" title="Next Post: Quality in software projects matters from day one">Quality in software projects matters from day one &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <a  href="http://ch.linkedin.com/in/ruflin"><img class="social-icon" src="/images/linkedin-small.jpg" /></a>
+  <a href="https://twitter.com/ruflin"><img class="social-icon"  src="/images/twitter-small.png" /></a>
+  <a href="https://github.com/ruflin"><img class="social-icon"  src="/images/GitHub-small.png" /></a>
+</section>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ruflin">@ruflin</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ruflin',
+            count: 3,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/13/measuring-your-software-quality-standards-must-be-easy/">Measuring Your Software Quality Standards Must Be Easy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">Quality in Software Projects Matters From Day One</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/14/why-you-should-know-the-http-status-code-418/">What HTTP Has to Offer Besides Code 418</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/08/getting-started-with-the-internet-of-things/">Getting Started With the Internet of Things</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/05/19/from-joomla-to-octopress/">From Joomla to Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/116483615197289019288?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - @ruflin -
+  <span class="credit">Hosted by <a href="http://xodoa.com">Xodoa</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruflincom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruflin.com/2014/02/14/why-you-should-know-the-http-status-code-418/';
+        var disqus_url = 'http://ruflin.com/2014/02/14/why-you-should-know-the-http-status-code-418/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

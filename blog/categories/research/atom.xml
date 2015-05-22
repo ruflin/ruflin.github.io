@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: research | Ruflin]]></title>
+  <link href="http://ruflin.com/blog/categories/research/atom.xml" rel="self"/>
+  <link href="http://ruflin.com/"/>
+  <updated>2015-05-22T14:53:26+02:00</updated>
+  <id>http://ruflin.com/</id>
+  <author>
+    <name><![CDATA[@ruflin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Storing and Analyzing Social Data]]></title>
+    <link href="http://ruflin.com/2011/04/17/storing-and-analyzing-social-data/"/>
+    <updated>2011-04-17T14:24:00+02:00</updated>
+    <id>http://ruflin.com/2011/04/17/storing-and-analyzing-social-data</id>
+    <content type="html"><![CDATA[<p>From July 2010 to December 2010 I worked on my master thesis "Storing and Analyzing Social Data". It is about the structure of social data, how to store social data (i.e. NoSQL solutions) and the processing of social data. You can download the full thesis <a href="http://ruflin.com/files/Storing-and-Analyzing-Social-Data.pdf">here</a>.</p>
+
+
+
+
+<p>For a short overview, here is the abstract of the thesis and the embedded pdf.</p>
+
+
+
+
+<h2>Abstract</h2>
+
+
+
+
+<p><i>Social platforms such as Facebook and Twitter have been growing exponentially in the last few years. As a result of this growth, the amount of social data increased enormously. The need for storing and analyzing social data became crucial. New storage solutions – also called NoSQL – were therefore created to fulfill this need. This thesis will analyze the structure of social data and give an overview of cur- rently used storage systems and their respective advantages and disadvantages for differently structured social data. Thus, the main goal of this thesis is to find out the structure of social data and to identify which types of storage systems are suit- able for storing and processing social data. Based on concrete implementations of the different storage systems it is analyzed which solutions fit which type of data and how the data can be processed and analyzed in the respective system. A focus lies on simple analyzing methods such as the degree centrality and simplified PageRank calculations.</i></p>
+
+
+
+
+<h2>Master Thesis</h2>
+
+
+<p><a title="View Storing and Analyzing Social Data on Scribd" href="http://www.scribd.com/doc/49968664/Storing-and-Analyzing-Social-Data" style="margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;">Storing and Analyzing Social Data</a><iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/49968664/content?start_page=1&view_mode=list&access_key=key-2gkqadzlowsgr3j7fla1" data-auto-height="true" data-aspect-ratio="0.707514450867052" scrolling="no" id="doc_57313" width="100%" height="600" frameborder="0"></iframe><script type="text/javascript">(function() { var scribd = document.createElement(&ldquo;script&rdquo;); scribd.type = &ldquo;text/javascript&rdquo;; scribd.async = true; scribd.src = &ldquo;<a href="http://www.scribd.com/javascripts/embed_code/inject.js">http://www.scribd.com/javascripts/embed_code/inject.js</a>&rdquo;; var s = document.getElementsByTagName(&ldquo;script&rdquo;)[0]; s.parentNode.insertBefore(scribd, s); })();</script></p>
+]]></content>
+  </entry>
+  
+</feed>

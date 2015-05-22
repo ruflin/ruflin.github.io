@@ -1,1 +1,808 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Nicolas Ruflin - Ruflin</title>
+  <meta name="author" content="@ruflin">
+
+  
+  <meta name="description" content="Quality in Software projects is important, as already elaborated upon in the previous post, it matters from day one. But as long as measuring and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ruflin.com">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ruflin" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2317870-20']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Nicolas Ruflin</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ruflin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/06/13/measuring-your-software-quality-standards-must-be-easy/">Measuring Your Software Quality Standards Must Be Easy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-13T09:19:37+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Quality in Software projects is important, as already elaborated upon in the previous post, <a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">it matters from day one</a>. But as long as measuring and running quality metrics isn&rsquo;t easy, it will be hard to follow through with quality.</p>
+
+<p>For almost all programming languages there are tons of tools to run unit tests, check the code complexity or measure the code coverage. The easiest way to get these tools into your project is on day one. The longer you wait, the harder it gets to implement them. There will be dependencies which are not compatible, running the tests doesn&rsquo;t work because you use a different folder structure and lots of other issues. The tools you choose to measure the quality will also influence the way you structure your project and your code. And I think this is good, as in most cases this leads to better structured code and less dependencies in the code which has lots of other advantages.</p>
+
+<h2>Setup and Build Tools</h2>
+
+<p>Installing the tools is not enough, it must also be easy to execute them and to get the metrics out. Otherwise, it is likely that you won&rsquo;t use it and in case you share your project, others won&rsquo;t use it. There are different tools out there such as <a href="http://en.wikipedia.org/wiki/Make_(software)">Makefiles</a>, <a href="http://ant.apache.org/">Ant</a>, <a href="http://maven.apache.org/">Maven</a>, <a href="http://gruntjs.com/">Grunt</a> and others, which allow you to automate running your tests or to get the code coverage. Pick the tool which is best for you and your project. For all tools, the execution should be just one command, such as <code>make coverage</code> in order to get the test coverage.</p>
+
+<p>Not only running the tools must be automated, but also the setup of the tools. In case you have different dependencies in your project that are needed to build the test coverage, make sure that the setup of your project is also as simple as <code>make setup</code>. There are also lots of dependency managers out there that automate the installation of the dependencies for you, such as <a href="http://bundler.io/">Bundler</a>, <a href="https://packagist.org/">Packagist</a> or <a href="https://pypi.python.org/pypi/pip">Pip</a>. If you want to make it even nicer, make sure that your build script runs also <code>make setup</code> in case you run <code>make coverage</code> and some depenencies are missing &hellip;</p>
+
+<p>To have these simple commands in place will make it very easy for you to run the quality metrics as often as possible. But also whenever new engineers join the project, with just one command they can start contributing to your project. If you don&rsquo;t have these kind of scripts in place, you will spend a lot of time with every single engineer who joins the project. And in case some dependencies change, others don&rsquo;t know how to get to the right setup again. This will not only cost you a lot of time, but it will also lead to frustration on all sides. To draw the analogy to building a car: Not having the script is like lending your car to someone else, but before the person is able to start driving, they either need a two-hour crash course from you or they need to read the full manual, because in your car, the accelerator is actually on the left side and the breaks are on the steering wheel. The next time the person will borrow your car, you changed the breaks to the left side and the whole process starts anew. If it is that hard to lend your car, you will not lend it to someone and the same is true for your code. If it is very hard for others to work with your code, you will not share it and they will not want to work with it.</p>
+
+<h2>Run it locally</h2>
+
+<p>It is crucial that all your quality measurements can be executed locally. How can you make sure your code is good enough if you can&rsquo;t test it locally? When you have to commit your code to a build server first, which runs all the tasks and gives you feedback after several minutes / hours that you actually have one typo in a test, you will stop writing tests, since otherwise it will slow you down. In addition, I think &ldquo;broken&rdquo; code should never make it into a shared repository / branch, as otherwise you will not only break your own code, but everyone else&rsquo;s, and your code will block the whole team. To draw the car analogy again: You implement a new break system in your car and also put it into the car the test team uses. After one week you realise that no test team is left, since all of them died in car accidents due to the breaks that didn&rsquo;t work. You didn&rsquo;t expect them to already use the breaks, since they were not finished / tested by yourself, but unfortunately they were testing the accelartor in the car which was ready for testing. Presumably your fellow engineers won&rsquo;t die because of broken code, but frustration is guaranteed.</p>
+
+<p>Make sure you and your team members can run all the metrics on your local machine and have it as close to the production system as possible. The best is to use a virtual environment with a clean setup. Tools such as <a href="http://www.vagrantup.com/">Vagrant</a> or <a href="http://www.docker.com/">Docker</a> can make your life much easier. Do not run the code on your local machines, since normally every engineer has some special environment variables or tools installed on his computer. This can either get all the quality metrics to pass but then they fail on another system, or it can do the opposite. A simple example here is for all the engineers who develop on OS X. By default, OS X has a case insensitive file system. On the other hand, Linux, which most servers run on, does not. So in case you include the file <code>image.png</code> but it is actually called <code>Image.png</code>, it will probably work on your local machine but not on the production server. Run your code in a very simliar environment to the production in order to make sure it works. And again, make sure the setup of this virtual environment is automated so everyone in your team will use it.</p>
+
+<h2>Conclusion</h2>
+
+<p>In the optimal case, you would not even have to run your quality metrics. Instead, they would run every time you change your code and immediately give you direct feedback. There are tools such as <a href="https://github.com/mynyml/watchr">watchr</a> which are intended for continuous testing and which run the tests every time you change the code. Having feedback for your code as fast as possible is crucial in order to produce better code. Tests should not slow down your development but speed it up. Make sure that setting up your project and running your quality metrics is fully automated and that it happens as fast as possible. If your tests take a day to execute, no one will ever run the tests except your continuous integration system over night. This would mean the feedback cycle is one day long, which will make sure that you get a maximum of 365 feedbacks per year.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="http://martinfowler.com/articles/continuousIntegration.html">Continuous Integration</a> by <a href="http://www.martinfowler.com/">Martin Fowler</a></li>
+<li><a href="https://www.youtube.com/watch?v=n04Xgv9aXg4">Vagrant, Packer, Serf: Maximum Potency DevOps</a> by <a href="https://twitter.com/mitchellh">Mitchell Hashimoto</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">Quality in Software Projects Matters From Day One</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-10T20:43:14+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As I see <a href="http://en.wikipedia.org/wiki/Software_quality">quality in software</a> as one of the most important features when building software, I will dedicate my next blog posts on software quality and quality standards. For most non-engineers, quality in software projects is something very abstract. I will therefore now and then make comparisons to building a car, since most people are more famliar with cars and objects they can actually touch and feel. My first post will be about why it matters to get quality into your software project from day one.</p>
+
+<p>Quality in software projects is a topic that lots of engineers talk about and also embrace. I rarely witness discussions where engineers argue against the importance of quality. The only situation where the question of quality might be an issue is when talking about building a prototype or writing the first lines of code of a project. Should you have quality standards in your prototype? Should you start your project already with tests?</p>
+
+<h2>Software runs multiple times</h2>
+
+<p>My answer to this is: If you plan to run your software multiple times, you should. If you build a prototype for example during a hackathon that only needs to run once, perhaps you can build it without including some basic tests. But even in this situation, I belive that having some basic quality measures in your code will prevent nasty surprises during your presentation.</p>
+
+<p>The beautiful thing about software is that it normally not only runs once, but can be executed thousands or millions of times without additional costs (except server costs). If you build software that is only executed once, why would you even build it? That is why quality standards also matter in your prototype. Your prototype will be executed lots of times and will go through various iterations. A prototype will have lower quality standards than a production system. To draw the comparison to building a car here: The first time you build a new car, you will not test 100 times if the blinker works as expected, but you will make sure that the breaks actually work. The same for your prototype, make sure you have at least tested the core functionality.</p>
+
+<h2>Proto-duction</h2>
+
+<p>More than once I have witnessed a prototype actually making it into production, the so-called <a href="http://blog.codinghorror.com/new-programming-jargon/">Proto-duction</a>. No, this should not happen, but if you start shipping your prototype and actual real users start to use it, it is very hard to convince the users and your business unit that you have to start from scratch again because you didn&rsquo;t plan this software to actually be for users. If we make the comparison with the car again, we shippped it to the user and made sure the accelarator actually works as expected, as this is the first things users test, but we didn&rsquo;t put much thought into how the breaks are applied if the car actually is going down and not on a flat street. Depending on how bad your &ldquo;break&rdquo; issue in your sofware is, perhaps it makes sense to take it away from your users again and build it from scratch.</p>
+
+<h2>Conclusion</h2>
+
+<p>To prevent Proto-Duction issues, get quality in your software projects from day one and make sure your quality is easily measured. More on how to make measuring your quality easy in the next post.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/02/14/why-you-should-know-the-http-status-code-418/">What HTTP Has to Offer Besides Code 418</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-14T21:35:44+01:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The internet is an integral part of our daily lives. We would be lost without the internet at work, and we depend upon it to guide us to a good restaurant or hotel on our holidays. None of this would be possible without internet protocols. <a href="http://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP</a>, <a href="http://en.wikipedia.org/wiki/Dhcp">DHCP</a>, <a href="http://en.wikipedia.org/wiki/Dns">DNS</a>, <a href="http://en.wikipedia.org/wiki/Http">HTTP</a> and many other internet protocols have been around for the last 20 years. Even more amazingly, they have changed only very little.</p>
+
+<p>The largest part of the &ldquo;visible&rdquo; web has always been running on the Hypertext Transfer Protocol known as HTTP. HTTP/1.0 was introduced in May 1996 as <a href="http://tools.ietf.org/html/rfc1945">RFC 1945</a>. A few months later, HTTP/1.1 was released as <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">RFC 2616</a>. Since then, the protocol received some minor improvements, but stayed mainly the same.</p>
+
+<p>In a fast-living environment such as the internet, 20 years of staying almost the same feels like several lifetimes. In their impact, protocols are comparable to inventing the wheel; both have been surving their purpose in many different environments and with different technologies. The inventors of HTTP, <a href="http://en.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners Lee</a> and his colleagues, were very smart people who did not only think of what they needed back then, but also of how the protocol might be used in the future. If you study the RFC in detail, you see that HTTP does not only offer two, four or five <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9">request methods</a>, but eight of them. Furthermore, it has a total of 41 status codes defined.</p>
+
+<p>The downside of having something that has stayed the same for such a long time is the tendency we have to forget how good something actually is. As for the wheel, we need to take care we don&rsquo;t reinvent internet protocols. Although the internet is all around us, only a small minority actually understands how it works. Most of them are engineers. And even engineers might have forgotten, or they might be younger than the protocols themselves and might never have learned it in the first place.</p>
+
+<p>Nowadays, we are used to very quickly building small applications with API&rsquo;s and frameworks. Seemingly, there is no need to understad the basic tools. Most engineers know at least the GET and POST Request methods and some of the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">status codes</a>, such as 200 or 404. But most of us don&rsquo;t have a deeper understanding, even though HTTP is at the core of most of the web applications we build.</p>
+
+<p>So what about the status code 418? Code 418 is part of the <a href="https://tools.ietf.org/html/rfc2324">Hyper Text Coffee Pot Control Protocol</a> (HTCPCP/1.0) which was introduced as an April&rsquo;s fool in 1998. Code 418 is therefore neither listed in the official RFC, nor should it be used as a status code.  If it still haunts the internet, it is because we are able to use the tools to build applications, but we don&rsquo;t always understand the tools themselves.</p>
+
+<p>If we use a 418 code, or if we don&rsquo;t know the difference between a 301 and a 302 code, we damage the internet little by little. Let&rsquo;s re-learn HTTP and re-discover what it has to offer. For example, a status code that is not very well known but from my point of view is very usable is <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3">202</a> (Accepted). Only by understanding internet protocols can we push them forward and be ready for <a href="http://en.wikipedia.org/wiki/HTTP_2.0">HTTP/2.0</a>, which is lurking on the horizon and will help us adapt to the new needs of internet communication.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/06/08/getting-started-with-the-internet-of-things/">Getting Started With the Internet of Things</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-08T23:53:00+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The term <a href="http://en.wikipedia.org/wiki/Internet_of_Things">Internet of Things</a> has been around for quite some time. Until recently, however, the things were mostly offline and could only connect to the internet through a mobile phone, for example via scanning a QR code. This changed in the last months and years with quite a few start-ups that entered the market, such as <a href="http://ninjablocks.com/">Ninja Blocks</a> or <a href="http://www.smartthings.com/">SmartThings</a> and devices such as <a href="http://hitekelec.com/myknut/">Knut</a> or <a href="http://supermechanical.com/">Twine</a>, as well as larger companies such as Philips with the <a href="http://www.meethue.com/">Hue Lightbulb</a>. Some of them are based on standards such as <a href="http://www.zigbee.org/">Zigbee</a> or have their own implementation.</p>
+
+<p>The introduction of very cheap and simple computers such as the <a href="http://www.raspberrypi.org/">Raspberry PI</a> and <a href="http://www.arduino.cc/">Arduino</a> had a huge impact on the internet of things. The sensors that had until then been mostly offline  can suddenly be connected to a cheap computer which connects to the internet. This makes it possible to access the sensors at any time from any location, mainly from the smart phone. It is even possible to interact with the sensor, for example turning the light on or opening a door.</p>
+
+<p>Most of these sensors can only do one thing and are basically &ldquo;stupid&rdquo;. But the power is and will be added through software. As these sensors are now all connected to each other, it is possible to write applications that interact with the sensors and make the whole system intelligent.</p>
+
+<p>From my point of view, the Internet of Things just got started. The more the things disappear and the more intelligent the interaction is, the more it will help us in our daily lives, and we will completely forget how it was possible to live without it. It will take a few years until these kind of things will be built into houses, but I think we are now at a good point to finally get the Internet of Things running.</p>
+
+<p>After playing around with a Raspberry PI for quite some time, I finally ordered a <a href="http://ninjablocks.com/products/ninja-blocks-kit">Ninja Blocks Kit</a>. I decided to go with the Ninja Blocks Kit for different reasons. First, I was only looking for a humidity sensor which I could monitor remotely. This is offered by various providers. What I like about the Ninja Blocks is that it is all based on Open Source. Not only the software is open source, but also the hardware plans are on Github. The product is at the moment probably more focused on Geeks than normal end users, but that&rsquo;s how the whole thing starts. I would predict that in the next months there will be lots of small startups which build up on this basic infrastructure/service to provide end user friendly solutions for all kinds of stuff such as home monitoring, gardening and lots more.</p>
+
+<p>I really look forward to getting my Ninja Blocks Kit. As soon as I get it I will post an update/review.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/05/19/from-joomla-to-octopress/">From Joomla to Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-19T00:00:00+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After more than a year, I finally managed to upgrade my private website / blog. My blog and gallery used to be based on Joomla, as I was a contributor to Joomla some years ago and had built some extensions which were running my site. Every time Joomla released a large update I ran into trouble because either I was too lazy to upgrade my extensions or another external extension didn&rsquo;t work properly with the upgrade. Naturally, it always took me forever to upgrade my website (even for security updates) and when I did upgrade, some stuff was broken.</p>
+
+<p>Finally more than a year ago, I decided to switch to something simpler, perhaps even something that I didn&rsquo;t have to host myself. I tried different services like Tubmlr, Posterous, Wordpress and more. These are all great solutions and make your life easier when you only want to blog. What bugs me with all these solutions is that it&rsquo;s again very hard to move to a different service in case one of these services stops working &ndash;  like Posteurous recently.</p>
+
+<p>I prefer to write my blog post not in a WYSIWYG editor even if it supports raw text. From time to time, I want to insert some JavaScript or other things that the editors manage to break. So I was looking for a solution where I can write blog posts in a standardized format (HTML, Markdown) if possible in my preferred editor. Because of Github pages I stumbled over <a href="https://github.com/mojombo/jekyll">Jekyll</a>. At first, I was very sceptical as I thought it is too limiting. On my old blog, I had some fancy extensions such as gallery and other stuff.</p>
+
+<p>From Jekyll I moved to <a href="http://octopress.org/">Octopress</a>, as it offers some nice additions to Jekyll. What I really like about the solution is that it allows me to define my urls, have pages and posts and makes it really easy to deploy. The first plan was to migrate all blog entries from the old blog to the new one. As these were in two different languages and I couldn&rsquo;t find an import script for Joomla, I decided to only migrate some blog entries related to Elastica and start from scratch.</p>
+
+<p>So here is the new clean blog which will hopefully be filled with content again soon. At the moment I&rsquo;m really happy with the new solution. Is is very easy to create blog entries and putting content online is just one command.</p>
+
+<p>In case you miss some old blog entries you would like to have them online again, please let me now by sending a tweet to <a href="https://twitter.com/ruflin">@ruflin</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/12/21/include-elastica-in-your-project-as-svn-externals/">Include Elastica in Your Project as Svn:externals</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-21T10:57:00+01:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As most of you know, <a href="https://github.com/ruflin/Elastica">Elastica</a> is hosted on <a href="https://github.com/">github</a>, which means it uses <a href="http://git-scm.com/">git</a> as its <a href="http://en.wikipedia.org/wiki/Version_control">revision control</a> system. I have several projects which include Elastica but use <a href="http://subversion.tigris.org/">subversion</a> as its version control system. Until now, I included Elastica as an external svn source by hosting my own Elastica svn repository. But yesterday I discovered that the code from github can also be checked out through svn. I immediately asked google to get more details about this feature and discovered several blog entries on the <a href="https://github.com/blog/966-improved-subversion-client-support">github blog</a> which I had somehow missed.</p>
+
+
+
+
+<p>It is not only possible to check out repositories, but also to check out some specific subfolders or tags and you can even commit to the repository (which I didn't test). As in my projects I only use the Elastica library folder and don't need all the tests and additional data, I check out only the lib folder. If you want to check out the Elastica lib folder from version v0.18.6.0, use the following line of code:</p>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>svn co https://github.com/ruflin/Elastica/tags/v0.18.6.0/lib/ .</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>If you have a lib folder in your project with all your frameworks and libraries and you want to add Elastica as an external source (which is quite useful), you can set the <a href="http://svnbook.red-bean.com/en/1.0/ch07s03.html">svn:externals property</a> on your library folder to the following.</p>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://github.com/ruflin/Elastica/tags/v0.18.6.0/lib/Elastica Elastica</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>If you already have other sources added as externals to your repository (for example ZF), just add this line below your existing lines. The next time you will update your repository, the Elastica folder with all its files will be checked out. To update to one of the next versions of Elastica, update the version number in the url in your svn:externals properties.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/11/21/using-elastica-with-multiple-elasticsearch-nodes/">Using Elastica With Multiple Elasticsearch Nodes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-21T13:05:00+01:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Elasticsearch was built with the cloud / multiple distributed servers in mind. It is quite easy to start a <a href="http://www.elasticsearch.org/guide/reference/modules/cluster.html">elasticsearch cluster</a> simply by starting multiple instances of elasticsearch on one server or on multiple servers. Every elasticsearch instance is called <a href="http://www.elasticsearch.org/guide/reference/api/admin-cluster-nodes-info.html">a node</a>. To start multiple instances of elasticsearch on your local machine, just run the following command in the elasticsearch folder twice:</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>./bin/elasticsearch -f
+</span><span class='line'>./bin/elasticsearch -f
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>As you will see, the first node will be started on port 9200, the second instance on port 9201. Elasticsearch automatically discovers the other node and creates a cluster. Elastica can be used to retrieve all node and cluster information. In the following example first the cluster object is retrieved (Elastica_Cluster) from the client and then the <a href="http://www.elasticsearch.org/guide/reference/api/admin-cluster-state.html">cluster state</a> is read out. Then all cluster nodes (Elastica_Node) are retrieved and the name of every node is printed out. Every cluster has at least one node and every node has a specific name.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Retrieve a Elastica_Cluster object</span>
+</span><span class='line'><span class="nv">$cluster</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">getCluster</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Returns the cluster state</span>
+</span><span class='line'><span class="nv">$state</span> <span class="o">=</span> <span class="nv">$cluster</span><span class="o">-&gt;</span><span class="na">getState</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Gets all cluster notes</span>
+</span><span class='line'><span class="nv">$nodes</span> <span class="o">=</span> <span class="nv">$cluster</span><span class="o">-&gt;</span><span class="na">getNodes</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$nodes</span> <span class="k">as</span> <span class="nv">$node</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Client to multiple servers</h2>
+
+
+
+
+<p>As elasticsearch is a distributed search engine that can be run on multiple servers, it is possible that some servers fail and still, the search works as expected as the data is stored redundantly (replicas). The <a href="http://www.elasticsearch.org/guide/reference/api/admin-indices-create-index.html">number of shards and replicas</a> can be chosen for every single index during creation. Of course, this can also be set with Elastica through the mapping as can be seen in the <a href="https://github.com/ruflin/Elastica/blob/master/test/lib/Elastica/IndexTest.php">Elastica_Index test</a>. More details on this perhaps in a later blog post.</p>
+
+
+
+
+<p>One of the goals of the distributed search index is availability. If one server goes down, search results should still be served. But if the client connects to only the server that just went down, no results are returned anymore. Because of this, Elastica_Client supports multiple servers which are accessed in a round robin algorithm. This is the only and also most basic option at the moment. So if we start a node on port 9200 and port 9201 above, we pass the following arguments to Elastica_Client to access both servers.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;servers&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>      <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9200</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">array</span><span class="p">(</span><span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9201</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>From now on, every request is sent to one of these servers in a round robin type. Instead of localhost, an external server could be used in addition. I'm aware that this is still a quite basic implementation. As probably some of you already realized, this is no safe failover method, as every second request still goes onto the server that is down. One idea here is to give a specific threshold for every server in which the respond time should be and otherwise the query goes to the next server. In addition, it would be useful to store this information on unavailable servers somewhere in order to use it for the next request. Thus, only one client has to wait for the unavailable server. Storing this information is somehow an issue, since Elastica does not have any storage backend.</p>
+
+
+
+
+<h2>Load Distribution</h2>
+
+
+
+
+<p>This client implementation also allows to distribute the load on multiple nodes. As far as I know, Elasticsearch already does this quite well on its own. But it helps if more than one node can answer http requests. Therefore, the method above is really useful if you use more than one elasticsearch node in a cluster to send your request to all servers.</p>
+
+
+
+
+<p>It is planned to enhance this multiple server implementation in the future with additional parameters such as priority for a server and some other ideas. Please feel free to write down your ideas in the comment section or directly create a pull request on github.</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/11/20/how-to-log-requests-in-elastica/">How to Log Requests in Elastica</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-20T13:46:00+01:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the <a href="https://github.com/ruflin/Elastica/tree/v0.18.4.1" target="_blank">Elastica Release v0.18.4.1</a>, the capability to log requests was added. There is a general Elastica_Log object that can later also be extended to log other things such as responses, exceptions and more. The Elastica_Log constructor takes an Elastica_Client as param. To enable logging, the config variable log for the client has to be set to true, or a specific path the log should be written to. This means that every client instance decides on its own whether logging is enabled or not.</p>
+
+
+
+
+<p>The example below will log the message "hello world" to the general PHP log.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;log&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+</span><span class='line'><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Log</span><span class="p">(</span><span class="nv">$client</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">log</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br /></p>
+
+<p>If a file path is set as the log config param, the error log will write the "hello world" message to the /tmp/php.log file.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Client</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;log&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/tmp/php.log&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Elastica_Log</span><span class="p">(</span><span class="nv">$client</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">log</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br /></p>
+
+<p>If logging is enabled, all request are at the moment automatically logged. There is a special conversion of request to log messages. The log message is converted to the shell format, so every log line can directly be pasted into the shell to test out. This is quite nice to debug and to create a gist if others ask what the query looks like. Furthermore, this makes it simpler to figure out whether the problem relates to Elastica or not.</p>
+
+
+
+
+<p>For example the output for updating the number of replicas setting request for the index test would look like below.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='console'><span class='line'><span class="go">curl -XPUT http://localhost:9200/test/_settings -d &#39;{&quot;index&quot;:{&quot;number_of_replicas&quot;:0}}&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/04/17/storing-and-analyzing-social-data/">Storing and Analyzing Social Data</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-17T14:24:00+02:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>From July 2010 to December 2010 I worked on my master thesis "Storing and Analyzing Social Data". It is about the structure of social data, how to store social data (i.e. NoSQL solutions) and the processing of social data. You can download the full thesis <a href="/files/Storing-and-Analyzing-Social-Data.pdf">here</a>.</p>
+
+
+
+
+<p>For a short overview, here is the abstract of the thesis and the embedded pdf.</p>
+
+
+
+
+<h2>Abstract</h2>
+
+
+
+
+<p><i>Social platforms such as Facebook and Twitter have been growing exponentially in the last few years. As a result of this growth, the amount of social data increased enormously. The need for storing and analyzing social data became crucial. New storage solutions – also called NoSQL – were therefore created to fulfill this need. This thesis will analyze the structure of social data and give an overview of cur- rently used storage systems and their respective advantages and disadvantages for differently structured social data. Thus, the main goal of this thesis is to find out the structure of social data and to identify which types of storage systems are suit- able for storing and processing social data. Based on concrete implementations of the different storage systems it is analyzed which solutions fit which type of data and how the data can be processed and analyzed in the respective system. A focus lies on simple analyzing methods such as the degree centrality and simplified PageRank calculations.</i></p>
+
+
+
+
+<h2>Master Thesis</h2>
+
+
+<p><a title="View Storing and Analyzing Social Data on Scribd" href="http://www.scribd.com/doc/49968664/Storing-and-Analyzing-Social-Data" style="margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;">Storing and Analyzing Social Data</a><iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/49968664/content?start_page=1&view_mode=list&access_key=key-2gkqadzlowsgr3j7fla1" data-auto-height="true" data-aspect-ratio="0.707514450867052" scrolling="no" id="doc_57313" width="100%" height="600" frameborder="0"></iframe><script type="text/javascript">(function() { var scribd = document.createElement(&ldquo;script&rdquo;); scribd.type = &ldquo;text/javascript&rdquo;; scribd.async = true; scribd.src = &ldquo;<a href="http://www.scribd.com/javascripts/embed_code/inject.js">http://www.scribd.com/javascripts/embed_code/inject.js</a>&rdquo;; var s = document.getElementsByTagName(&ldquo;script&rdquo;)[0]; s.parentNode.insertBefore(scribd, s); })();</script></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <a  href="http://ch.linkedin.com/in/ruflin"><img class="social-icon" src="/images/linkedin-small.jpg" /></a>
+  <a href="https://twitter.com/ruflin"><img class="social-icon"  src="/images/twitter-small.png" /></a>
+  <a href="https://github.com/ruflin"><img class="social-icon"  src="/images/GitHub-small.png" /></a>
+</section>
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ruflin">@ruflin</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ruflin',
+            count: 3,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/13/measuring-your-software-quality-standards-must-be-easy/">Measuring Your Software Quality Standards Must Be Easy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/06/10/quality-in-software-projects-matters-from-day-one/">Quality in Software Projects Matters From Day One</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/14/why-you-should-know-the-http-status-code-418/">What HTTP Has to Offer Besides Code 418</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/08/getting-started-with-the-internet-of-things/">Getting Started With the Internet of Things</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/05/19/from-joomla-to-octopress/">From Joomla to Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/116483615197289019288?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - @ruflin -
+  <span class="credit">Hosted by <a href="http://xodoa.com">Xodoa</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ruflincom';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
